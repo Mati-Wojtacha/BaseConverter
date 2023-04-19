@@ -11,7 +11,7 @@ public class BaseConverterTest {
 
 
 
-    @ParameterizedTest(name = "Convert value from binary to Base{8,10,16}")
+    @ParameterizedTest(name = "Convert value from binary to Base(8,10,16)")
     @CsvSource({
             "101,2,8,5",
             "111,2,8,7",
@@ -39,7 +39,7 @@ public class BaseConverterTest {
     }
 
 
-    @ParameterizedTest(name = "Convert value from octal to Base{2,10,16}")
+    @ParameterizedTest(name = "Convert value from octal to Base(2,10,16)")
     @CsvSource({
             "5,8,2,101",
             "7,8,2,111",
@@ -65,7 +65,7 @@ public class BaseConverterTest {
         assertEquals(expectedOutput, BaseConverter.convert(input, inputBase, outputBase));
     }
 
-    @ParameterizedTest(name = "Convert value from decimal to Base{2,8,16}")
+    @ParameterizedTest(name = "Convert value from decimal to Base(2,8,16)")
     @CsvSource({
             "5,10,2,101",
             "7,10,2,111",
@@ -91,27 +91,27 @@ public class BaseConverterTest {
         assertEquals(expected, BaseConverter.convert(input, inputBase, outputBase));
     }
 
-    @ParameterizedTest(name = "Convert value from hexadecimal to Base{2,8,10}")
+    @ParameterizedTest(name = "Convert value from hexadecimal to Base (2,8,10)")
     @CsvSource({
             "5,16,2,101",
             "7,16,2,111",
-            "A,16,2,1010",
+            "a,16,2,1010",
             "5,16,8,5",
             "7,16,8,7",
-            "A,16,8,12",
+            "a,16,8,12",
             "5,16,10,5",
             "7,16,10,7",
-            "A,16,10,10",
+            "a,16,10,10",
 
             "-5,16,2,-101",
             "-7,16,2,-111",
-            "-A,16,2,-1010",
+            "-a,16,2,-1010",
             "-5,16,8,-5",
             "-7,16,8,-7",
-            "-A,16,8,-12",
+            "-a,16,8,-12",
             "-5,16,10,-5",
             "-7,16,10,-7",
-            "-A,16,10,-10"
+            "-a,16,10,-10"
     })
     void testConverterHexadecimal(String input, int inputBase, int outputBase, String expectedOutput) {
         assertEquals(expectedOutput, BaseConverter.convert(input, inputBase, outputBase));
